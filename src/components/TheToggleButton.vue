@@ -5,5 +5,6 @@ const uiStore = useUiStore();
 </script>
 
 <template>
-    <button @pointerdown="(event) => uiStore.displayLaunchArea(true, event)">Open Panel</button>
+    <button @click="uiStore.isLaunchAreaOpen = !uiStore.isLaunchAreaOpen">Toggle Panel</button>
+    <button @click="uiStore.isBackgroundScale = !uiStore.isBackgroundScale">Toggle Background Scale</button>
 </template>

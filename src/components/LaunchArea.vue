@@ -5,18 +5,26 @@ import { watch } from 'vue';
 const uiStore = useUiStore();
 
 watch(() => uiStore.isLaunchAreaOpen, (isLaunchAreaOpen) => {
-    if (isLaunchAreaOpen) displayLaunchArea(uiStore.isLaunchAreaNavigationToPage, uiStore.isLaunchAreaPointerEvent)
+    if (isLaunchAreaOpen)
+        displayLaunchArea()
+    else
+        closeLaunchArea()
 })
 
-function displayLaunchArea(navigationToPage: boolean, pointerEvent: PointerEvent | null) {
-    console.log(`call displayLaunchArea, navigationToPage: ${navigationToPage} pointerEvent: ${pointerEvent}`)
-    console.log(pointerEvent)
+function displayLaunchArea() {
+    console.log("call displayLaunchArea")
+    // do anything you want to do
+}
+
+function closeLaunchArea() {
+    console.log("call closeLaunchArea")
+    // do anything you want to do
 }
 </script>
 
 <template>
     <div v-if="uiStore.isLaunchAreaOpen" class="launch-area">
-        <button @click="uiStore.closeLaunchArea">Close Panel</button>
+        <button @click="uiStore.isLaunchAreaOpen = false">Close Panel</button>
     </div>
 </template>
 
